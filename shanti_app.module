@@ -1,0 +1,48 @@
+<?php
+
+/**
+ * Shanti Application to show scholarly collections
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function shanti_app_menu() {
+  $items['shanti-collections'] = array(
+    'title' => 'Shanti App',
+    'description' => 'Creates a page that shows the initial content of the shanti application',
+    'page callback' => 'shanti_page',
+    'theme callback' => 'shanti_app_theme_used',
+    'access arguments' => array('access content'),
+    'type' => MENU_NORMAL_ITEM,
+    'menu_name' => 'main-menu',
+  );
+
+  return $items;
+}
+
+/**
+ * Function to return the theme to be used by this module.
+ * Make sure that the theme is enabled on the site.
+ */
+function shanti_app_theme_used() {
+  return 'shanti_theme';
+}
+
+/**
+ * Implements hook_theme().
+ */
+function shanti_app_theme() {
+  return array(
+    'shanti_app_template' => array(
+      'template' => 'shanti_app_page',
+    ),
+  );
+}
+
+/**
+ * Function to create the page for the shanti app
+ */
+function shanti_page() {
+  return theme('shanti_app_template');
+}
