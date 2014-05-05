@@ -8,9 +8,18 @@
  * Implements hook_menu().
  */
 function shanti_app_menu() {
-  $items['shanti-collections'] = array(
-    'title' => 'Shanti App',
-    'description' => 'Creates a page that shows the initial content of the shanti application',
+  $items['subjects'] = array(
+    'title' => 'Subjects',
+    'description' => 'Creates a page that shows the initial content of the shanti application subjects',
+    'page callback' => 'shanti_page',
+    'theme callback' => 'shanti_app_theme_used',
+    'access arguments' => array('access content'),
+    'type' => MENU_NORMAL_ITEM,
+    'menu_name' => 'main-menu',
+  );
+  $items['places'] = array(
+    'title' => 'Places',
+    'description' => 'Creates a page that shows the initial content of the shanti application places',
     'page callback' => 'shanti_page',
     'theme callback' => 'shanti_app_theme_used',
     'access arguments' => array('access content'),
